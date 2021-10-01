@@ -6,17 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.csuncion.examen_suncion.examen_final.upn.entities.User;
+import com.csuncion.examen_suncion.examen_final.upn.models.DAORestaurant;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView txtUbication, txtContact, txtRegister, txtUser, txtPwd;
+    EditText txtUser, txtPwd;
+    TextView txtUbication, txtContact, txtRegister;
     Button btnLogin;
+    User user;
+    DAORestaurant daoRestaurant = new DAORestaurant(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        daoRestaurant.openDB();
         asignarReferencias();
     }
     private void asignarReferencias() {
@@ -50,26 +59,35 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loguearse();
+                if(loguearse()){
+                    String exists = daoRestaurant.getUser(user);
+                    if (exists.equals("Debe registrarse")) {
+                        Toast.makeText(MainActivity.this, exists, Toast.LENGTH_SHORT).show();
+                     }else{
+                        Toast.makeText(MainActivity.this, exists, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, MenuFood.class);
+                        startActivity(intent);
+                    }
+                }
             }
         });
 
     }
     private boolean loguearse(){
         boolean valid = true;
-        String user = txtUser.getText().toString();
+        String usr = txtUser.getText().toString();
         String pwd = txtPwd.getText().toString();
-        if(user.equals("")){
+        if(usr.equals("")){
             txtUser.setError("Usuario Obligatorio");
             valid = false;
         }
         if(pwd.equals("")){
-            txtUser.setError("Contraseña Obligatorio");
+            txtPwd.setError("Contraseña Obligatorio");
             valid = false;
         }
 
         if(valid){
-
+            user = new User("","",usr,"","",pwd);
         }
 
         return valid;

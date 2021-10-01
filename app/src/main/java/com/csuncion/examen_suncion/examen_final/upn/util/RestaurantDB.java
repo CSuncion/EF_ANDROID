@@ -15,9 +15,10 @@ public class RestaurantDB extends SQLiteOpenHelper {
                         "firstname TEXT NOT NULL, " +
                         "lastname TEXT NOT NULL, " +
                         "mail TEXT NOT NULL, " +
-                        "dni INTEGER NOT NULL, " +
+                        "dni TEXT NOT NULL, " +
                         "sex TEXT NOT NULL, " +
                         "password TEXT NOT NULL);";
+        db.execSQL(query);
     }
 
     @Override

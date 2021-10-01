@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName5"
+            android:id="@+id/txtFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -53,10 +53,10 @@
             android:text="Apellidos"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+            app:layout_constraintTop_toBottomOf="@+id/txtFirstName" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/txtLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -83,10 +83,10 @@
             android:text="Documento de Identidad"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+            app:layout_constraintTop_toBottomOf="@+id/txtLastName" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/txtDni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -113,10 +113,10 @@
             android:text="Sexo"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/txtDni" />
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/rboSex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -126,14 +126,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textView14">
 
             <RadioButton
-                android:id="@+id/radio_pirates"
+                android:id="@+id/rboM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Masculino"
                 android:textSize="20sp" />
 
             <RadioButton
-                android:id="@+id/radio_ninjas"
+                android:id="@+id/rboF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Femenino"
@@ -149,10 +149,10 @@
             android:text="E-Mail"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/rboSex" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/txtMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -179,10 +179,10 @@
             android:text="Contraseña"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/txtMail" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/txtPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -201,7 +201,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -210,7 +210,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/txtPass" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
