@@ -9,7 +9,7 @@ public class RestaurantDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query =
+        String queryUser =
                 "CREATE TABLE " + Constant.NAME_TABLE_USER +
                         "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "firstname TEXT NOT NULL, " +
@@ -17,8 +17,30 @@ public class RestaurantDB extends SQLiteOpenHelper {
                         "mail TEXT NOT NULL, " +
                         "dni TEXT NOT NULL, " +
                         "sex TEXT NOT NULL, " +
-                        "password TEXT NOT NULL);";
-        db.execSQL(query);
+                        "password TEXT NOT NULL); ";
+        db.execSQL(queryUser);
+
+        String queryContact =
+                "CREATE TABLE " + Constant.NAME_TABLE_CONTACT +
+                        "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "fullName TEXT NOT NULL," +
+                        "phone TEXT NOT NULL," +
+                        "subject TEXT NOT NULL," +
+                        "message TEXT NOT NULL);";
+        db.execSQL(queryContact);
+
+        String queryMenu =
+                "CREATE TABLE " + Constant.NAME_TABLE_MENU +
+                        "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "food TEXT NOT NULL," +
+                        "description TEXT NOT NULL," +
+                        "detail TEXT NOT NULL," +
+                        "category TEXT NOT NULL," +
+                        "price FLOAT NOT NULL," +
+                        "count INTEGER NOT NULL," +
+                        "status INTEGER NOT NULL);";
+        db.execSQL(queryMenu);
+
     }
 
     @Override

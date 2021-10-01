@@ -99,7 +99,7 @@
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Usuario"
+        android:hint="Ingrese correo"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingHorizontal="10dp"

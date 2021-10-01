@@ -95,6 +95,7 @@
             android:background="@drawable/box_text"
             android:ems="10"
             android:hint="DNI"
+            android:maxLength="8"
             android:inputType="number"
             android:minHeight="48dp"
             android:paddingHorizontal="10dp"

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.csuncion.examen_suncion.examen_final.upn.entities.Contact;
 import com.csuncion.examen_suncion.examen_final.upn.entities.User;
 import com.csuncion.examen_suncion.examen_final.upn.util.Constant;
 import com.csuncion.examen_suncion.examen_final.upn.util.RestaurantDB;
@@ -77,5 +78,27 @@ public class DAORestaurant {
             exists =  e.getMessage();
         }
         return exists;
+    }
+
+
+    public String registerContact(Contact contact){
+        String answer = "";
+        try {
+            ContentValues values = new ContentValues();
+            values.put("fullName", contact.getFullName());
+            values.put("phone", contact.getPhone());
+            values.put("subject", contact.getSubject());
+            values.put("message", contact.getMessage());
+            long ans  = db.insert(Constant.NAME_TABLE_CONTACT,null,values);
+            if(ans == -1){
+                answer = "Error al insertar";
+            }else{
+                answer = "Se registró correctamente";
+            }
+
+        }catch (Exception e){
+            answer = e.getMessage();
+        }
+        return answer;
     }
 }
