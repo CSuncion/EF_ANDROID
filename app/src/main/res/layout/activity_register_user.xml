@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:fillViewport="true">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterUser"
-        android:layout_margin="16dp">
+        tools:context=".RegisterUser">
 
         <TextView
             android:id="@+id/textView2"
@@ -29,12 +31,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:ems="10"
-            android:inputType="textPersonName"
             android:background="@drawable/box_text"
-            android:paddingHorizontal="10dp"
-            android:minHeight="48dp"
+            android:ems="10"
             android:hint="Nombres Completos"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:paddingHorizontal="10dp"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,44 +64,14 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/box_text"
             android:ems="10"
+            android:hint="Apellidos Completos"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingHorizontal="10dp"
             android:textSize="20sp"
-            android:hint="Apellidos Completos"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="Edad"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
-
-        <EditText
-            android:id="@+id/editTextDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/box_text"
-            android:ems="10"
-            android:hint="Edad"
-            android:inputType="date"
-            android:minHeight="48dp"
-            android:paddingHorizontal="10dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
@@ -108,8 +80,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:textSize="20sp"
             android:text="Documento de Identidad"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
@@ -122,10 +94,11 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/box_text"
             android:ems="10"
+            android:hint="DNI"
             android:inputType="number"
             android:minHeight="48dp"
-            android:hint="DNI"
             android:paddingHorizontal="10dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13"
@@ -140,7 +113,7 @@
             android:text="Sexo"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -187,27 +160,57 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/box_text"
             android:ems="10"
+            android:hint="E-Mail"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:paddingHorizontal="10dp"
-            android:hint="E-Mail"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView15"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Contraseña"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/box_text"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingHorizontal="10dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:text="GUARDAR"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
