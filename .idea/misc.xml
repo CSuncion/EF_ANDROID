@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+        <entry key="..\:/UPN/Moviles_Upn/EF_ANDROID/app/src/main/res/layout/activity_contact_service.xml" value="0.20416666666666666" />
+        <entry key="..\:/UPN/Moviles_Upn/EF_ANDROID/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/UPN/Moviles_Upn/EF_ANDROID/app/src/main/res/layout/activity_menu_food.xml" value="0.25" />
+        <entry key="..\:/UPN/Moviles_Upn/EF_ANDROID/app/src/main/res/layout/activity_register_user.xml" value="0.25" />
+=======
+>>>>>>> 76180ee277924b2c4d18079bdc383aaf9695e72c
         <entry key="..\:/Universidad Privada del Norte/Video Juego y Aplicaciones/examen_final/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22552083333333334" />
         <entry key="..\:/Universidad Privada del Norte/Video Juego y Aplicaciones/examen_final/app/src/main/res/drawable/box_text.xml" value="0.11614583333333334" />
         <entry key="..\:/Universidad Privada del Norte/Video Juego y Aplicaciones/examen_final/app/src/main/res/drawable/ic_add_user.xml" value="0.22552083333333334" />
