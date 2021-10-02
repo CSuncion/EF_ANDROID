@@ -22,7 +22,8 @@
         <activity
             android:name=".MenuFood"
             android:exported="true"
-            android:label="Menu de Comidas"/>
+            android:label="Menu de Comidas"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ContactService"
             android:exported="true"
@@ -43,7 +44,10 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="${MAPS_API_KEY}" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".LocationRestaurant"

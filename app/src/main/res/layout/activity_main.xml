@@ -2,21 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:layout_margin="20dp">
+    android:layout_margin="20dp"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Sistema Restaurante"
+        android:drawableStart="@drawable/ic_fastfood"
         android:drawablePadding="12dp"
+        android:text="Restaurante Sabrosito"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:drawableStart="@drawable/ic_fastfood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -88,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -98,7 +99,7 @@
         android:drawableStart="@drawable/ic_user"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Usuario"
+        android:hint="Ingrese correo"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:paddingHorizontal="10dp"
@@ -116,25 +117,25 @@
         android:text="Contraseña"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUser" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INGRESAR"
+        android:text="INICIAR SESION"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/txtNoUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPwd" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="186dp"
         android:layout_height="138dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -152,7 +153,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/txtPwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -160,11 +161,12 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/box_text"
         android:drawableStart="@drawable/ic_password"
-        android:drawablePadding="12dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textSize="20sp"
+        android:drawablePadding="12dp"
         android:paddingHorizontal="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

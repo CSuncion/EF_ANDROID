@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.examen_final.iml
+# Datasource local storage ignored files
+/../../../../../../../:\Universidad Privada del Norte\Video Juego y Aplicaciones\examen_final\.idea\.idea.examen_final.dir\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
