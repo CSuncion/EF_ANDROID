@@ -44,8 +44,8 @@ public class LocationRestaurant extends FragmentActivity implements OnMapReadyCa
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(-11.944598,  -77.134515);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Restaurante Sabrosito"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

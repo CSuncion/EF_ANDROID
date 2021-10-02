@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:drawableStart="@drawable/ic_fastfood"
         android:drawablePadding="12dp"
-        android:text="Sistema Restaurante"
+        android:text="Restaurante Sabrosito"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

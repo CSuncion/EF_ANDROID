@@ -16,7 +16,7 @@ import com.csuncion.examen_suncion.examen_final.upn.models.DAORestaurant;
 public class MainActivity extends AppCompatActivity {
 
     EditText txtUser, txtPwd;
-    TextView txtUbication, txtContact, txtRegister;
+    TextView txtUbication, txtContact, txtRegister, txtNoUser;
     Button btnLogin;
     User user;
     DAORestaurant daoRestaurant = new DAORestaurant(this);
@@ -71,7 +71,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
+        txtNoUser = findViewById(R.id.txtNoUser);
+        txtNoUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this, MenuFood.class);
+                startActivity(intent);
+            }
+        });
     }
     private boolean loguearse(){
         boolean valid = true;
