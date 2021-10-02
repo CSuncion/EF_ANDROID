@@ -7,9 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.csuncion.examen_suncion.examen_final.upn.entities.Contact;
+import com.csuncion.examen_suncion.examen_final.upn.entities.Menu;
 import com.csuncion.examen_suncion.examen_final.upn.entities.User;
 import com.csuncion.examen_suncion.examen_final.upn.util.Constant;
 import com.csuncion.examen_suncion.examen_final.upn.util.RestaurantDB;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAORestaurant {
     RestaurantDB restaurantDB;
@@ -100,5 +104,20 @@ public class DAORestaurant {
             answer = e.getMessage();
         }
         return answer;
+    }
+
+    public List<Menu> getMenu(){
+        List<Menu> listMenu = new ArrayList<>();
+        try{
+            String query = "SELECT * FROM " + Constant.NAME_TABLE_MENU ;
+            Cursor c = db.rawQuery(query,null);
+
+            while (c.moveToNext()){
+                listMenu.add(new Menu(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3), c.getString(4),c.getString(5),c.getString(6),c.getFloat(7),c.getInt(8),c.getInt(9)));
+            }
+        }catch (Exception e){
+            Log.d("==>", e.getMessage());
+        }
+        return listMenu;
     }
 }
