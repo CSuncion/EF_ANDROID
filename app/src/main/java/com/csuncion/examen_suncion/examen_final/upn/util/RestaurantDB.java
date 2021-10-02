@@ -32,6 +32,8 @@ public class RestaurantDB extends SQLiteOpenHelper {
         String queryMenu =
                 "CREATE TABLE " + Constant.NAME_TABLE_MENU +
                         "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        "codMenu INTEGER NOT NULL," +
+                        "codFood INTEGER NOT NULL," +
                         "food TEXT NOT NULL," +
                         "description TEXT NOT NULL," +
                         "detail TEXT NOT NULL," +
