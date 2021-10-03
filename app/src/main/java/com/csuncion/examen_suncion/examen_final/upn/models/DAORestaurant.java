@@ -106,18 +106,60 @@ public class DAORestaurant {
         return answer;
     }
 
-    public List<Menu> getMenu(){
+    public List<Menu> getMenu(String mail){
         List<Menu> listMenu = new ArrayList<>();
         try{
-            String query = "SELECT * FROM " + Constant.NAME_TABLE_MENU ;
+            String query = "SELECT * FROM " + Constant.NAME_TABLE_MENU + " Where mail = '" + mail + "'";
             Cursor c = db.rawQuery(query,null);
 
             while (c.moveToNext()){
-                listMenu.add(new Menu(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3), c.getString(4),c.getString(5),c.getString(6),c.getFloat(7),c.getInt(8),c.getInt(9)));
+                listMenu.add(new Menu(c.getInt(0), c.getInt(1), c.getInt(2), c.getString(3),c.getString(4),c.getString(5), c.getDouble(6),c.getDouble(7),c.getDouble(8),c.getInt(9), c.getInt(10),c.getInt(11)));
             }
         }catch (Exception e){
             Log.d("==>", e.getMessage());
         }
         return listMenu;
+    }
+
+    public int getCodMenu(){
+        int codMenu = 0;
+        try{
+            String query = "SELECT MAX(codMenu) + 1 FROM " + Constant.NAME_TABLE_MENU;
+            Cursor c = db.rawQuery(query,null);
+
+            codMenu = c.getInt(0);
+
+        }catch (Exception e){
+            Log.d("==>", e.getMessage());
+        }
+        return codMenu;
+    }
+
+    public String registerMenu(Menu menu){
+        String answer = "";
+        try {
+            ContentValues values = new ContentValues();
+            values.put("codMenu", menu.getCodMenu());
+            values.put("codFood", menu.getCodFood());
+            values.put("food", menu.getFood());
+            values.put("input", menu.getInput());
+            values.put("mail", menu.getMail());
+            values.put("priceFood", menu.getPriceFood());
+            values.put("priceInput", menu.getPriceInput());
+            values.put("priceTotal", menu.getPriceTotal());
+            values.put("countFood", menu.getCountFood());
+            values.put("countInput", menu.getCountInput());
+            values.put("countTotal", menu.getCountTotal());
+            long ans  = db.insert(Constant.NAME_TABLE_MENU,null,values);
+            if(ans == -1){
+                answer = "Error al insertar";
+            }else{
+                answer = "Se registró correctamente";
+            }
+
+        }catch (Exception e){
+            answer = e.getMessage();
+        }
+        return answer;
     }
 }

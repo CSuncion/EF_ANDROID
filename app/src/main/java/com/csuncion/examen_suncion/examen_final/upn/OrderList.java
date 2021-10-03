@@ -22,17 +22,18 @@ public class OrderList extends AppCompatActivity {
     DAORestaurant daoRestaurant  = new DAORestaurant(this);
     List<Menu> listMenu = new ArrayList<>();
     AdapterCustomized adapter;
-
+    String usr =  "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_list);
         daoRestaurant.openDB();
         assignReferences();
+        receivedData();
         showMenu();
     }
     private void showMenu(){
-        listMenu = daoRestaurant.getMenu();
+        listMenu = daoRestaurant.getMenu(usr);
         adapter = new AdapterCustomized(this,listMenu);
         recyclerOrderList.setAdapter(adapter);
         recyclerOrderList.setLayoutManager((new LinearLayoutManager(this)));
@@ -47,5 +48,10 @@ public class OrderList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    private void receivedData(){
+        if(getIntent().hasExtra("mail")) {
+            usr = getIntent().getStringExtra("mail");
+        }
     }
 }

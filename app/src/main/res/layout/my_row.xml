@@ -8,17 +8,17 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="150dp"
         app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imgFood"
-                android:layout_width="100dp"
-                android:layout_height="118dp"
+                android:layout_width="104dp"
+                android:layout_height="126dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_user" />
@@ -30,81 +30,42 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Food"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView17"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/txtHuancina"
+                app:layout_constraintTop_toBottomOf="@+id/rowPriceInput" />
 
             <TextView
-                android:id="@+id/rowCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Category"
-                app:layout_constraintStart_toEndOf="@+id/textView20"
-                app:layout_constraintTop_toBottomOf="@+id/rowFood" />
-
-            <TextView
-                android:id="@+id/rowPrice"
+                android:id="@+id/rowPriceSecond"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Price"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/textView21"
-                app:layout_constraintTop_toBottomOf="@+id/rowCategory" />
+                app:layout_constraintTop_toBottomOf="@+id/rowFood" />
 
             <TextView
                 android:id="@+id/rowCount"
-                android:layout_width="65dp"
-                android:layout_height="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Cantidad"
-                app:layout_constraintStart_toEndOf="@+id/textView22"
-                app:layout_constraintTop_toBottomOf="@+id/rowPrice" />
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/txtLomo"
+                app:layout_constraintTop_toBottomOf="@+id/rowPriceSecond" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/txtHuancina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Comida:"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/imgFood"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/rowDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/rowFood"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/rowDetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Details"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/rowCategory"
-                app:layout_constraintTop_toBottomOf="@+id/rowDescription" />
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Categoria:"
-                app:layout_constraintStart_toEndOf="@+id/imgFood"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -112,25 +73,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="Precio:"
+                android:text="Precio Comida:"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/imgFood"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/txtHuancina" />
 
             <TextView
-                android:id="@+id/textView22"
-                android:layout_width="61dp"
-                android:layout_height="15dp"
+                android:id="@+id/txtLomo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Cantidad:"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/imgFood"
                 app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
             <ImageButton
                 android:id="@+id/imgBtnDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
+                android:layout_width="39dp"
+                android:layout_height="44dp"
+                android:minWidth="39dp"
+                android:minHeight="44dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/ic_delete"
@@ -138,14 +102,57 @@
 
             <ImageButton
                 android:id="@+id/imgBtnEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
+                android:layout_width="39dp"
+                android:layout_height="44dp"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imgBtnDelete"
                 app:srcCompat="@drawable/ic_edit"
                 tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/rowInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Input"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/textView19"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Entrada:"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/imgFood"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="15sp"
+                android:text="Precio Entrada:"
+                app:layout_constraintStart_toEndOf="@+id/imgFood"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <TextView
+                android:id="@+id/rowPriceInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Price"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/textView20"
+                app:layout_constraintTop_toBottomOf="@+id/rowInput" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -2,33 +2,37 @@ package com.csuncion.examen_suncion.examen_final.upn.entities;
 
 public class Menu {
     private int id, codMenu, codFood;
-    private String food, description,detail,category;
-    private Float price;
-    private int count, status;
+    private String food, input, mail;
+    private Double priceFood, priceInput, priceTotal;
+    private int countFood, countInput, countTotal;
 
-    public Menu(int id, int codMenu, int codFood, String food, String description, String detail, String category, Float price, int count, int status) {
+    public Menu(int id, int codMenu, int codFood, String food, String input, String mail, Double priceFood, Double priceInput, Double priceTotal, int countFood, int countInput, int countTotal) {
         this.id = id;
         this.codMenu = codMenu;
         this.codFood = codFood;
         this.food = food;
-        this.description = description;
-        this.detail = detail;
-        this.category = category;
-        this.price = price;
-        this.count = count;
-        this.status = status;
+        this.input = input;
+        this.mail = mail;
+        this.priceFood = priceFood;
+        this.priceInput = priceInput;
+        this.priceTotal = priceTotal;
+        this.countFood = countFood;
+        this.countInput = countInput;
+        this.countTotal = countTotal;
     }
 
-    public Menu(int codMenu, int codFood, String food, String description, String detail, String category, Float price, int count, int status) {
+    public Menu(int codMenu, int codFood, String food, String input, String mail, Double priceFood, Double priceInput, Double priceTotal, int countFood, int countInput, int countTotal) {
         this.codMenu = codMenu;
         this.codFood = codFood;
         this.food = food;
-        this.description = description;
-        this.detail = detail;
-        this.category = category;
-        this.price = price;
-        this.count = count;
-        this.status = status;
+        this.input = input;
+        this.mail = mail;
+        this.priceFood = priceFood;
+        this.priceInput = priceInput;
+        this.priceTotal = priceTotal;
+        this.countFood = countFood;
+        this.countInput = countInput;
+        this.countTotal = countTotal;
     }
 
     public int getId() {
@@ -63,51 +67,67 @@ public class Menu {
         this.food = food;
     }
 
-    public String getDescription() {
-        return description;
+    public String getInput() {
+        return input;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setInput(String input) {
+        this.input = input;
     }
 
-    public String getDetail() {
-        return detail;
+    public String getMail() {
+        return mail;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    public String getCategory() {
-        return category;
+    public Double getPriceFood() {
+        return priceFood;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setPriceFood(Double priceFood) {
+        this.priceFood = priceFood;
     }
 
-    public Float getPrice() {
-        return price;
+    public Double getPriceInput() {
+        return priceInput;
     }
 
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setPriceInput(Double priceInput) {
+        this.priceInput = priceInput;
     }
 
-    public int getCount() {
-        return count;
+    public Double getPriceTotal() {
+        return priceTotal;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setPriceTotal(Double priceTotal) {
+        this.priceTotal = priceTotal;
     }
 
-    public int getStatus() {
-        return status;
+    public int getCountFood() {
+        return countFood;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setCountFood(int countFood) {
+        this.countFood = countFood;
+    }
+
+    public int getCountInput() {
+        return countInput;
+    }
+
+    public void setCountInput(int countInput) {
+        this.countInput = countInput;
+    }
+
+    public int getCountTotal() {
+        return countTotal;
+    }
+
+    public void setCountTotal(int countTotal) {
+        this.countTotal = countTotal;
     }
 }

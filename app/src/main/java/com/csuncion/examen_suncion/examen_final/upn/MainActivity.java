@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.csuncion.examen_suncion.examen_final.upn.entities.User;
 import com.csuncion.examen_suncion.examen_final.upn.models.DAORestaurant;
+import com.csuncion.examen_suncion.examen_final.upn.util.Constant;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                      }else{
                         Toast.makeText(MainActivity.this, exists, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, MenuFood.class);
+                        intent.putExtra("mail", txtUser.getText().toString() + "");
                         startActivity(intent);
                     }
                 }
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(MainActivity.this, MenuFood.class);
+                intent.putExtra("mail", txtNoUser.getText().toString() + "");
                 startActivity(intent);
             }
         });

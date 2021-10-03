@@ -35,14 +35,15 @@ public class RestaurantDB extends SQLiteOpenHelper {
                         "codMenu INTEGER NOT NULL," +
                         "codFood INTEGER NOT NULL," +
                         "food TEXT NOT NULL," +
-                        "description TEXT NOT NULL," +
-                        "detail TEXT NOT NULL," +
-                        "category TEXT NOT NULL," +
-                        "price FLOAT NOT NULL," +
-                        "count INTEGER NOT NULL," +
-                        "status INTEGER NOT NULL);";
+                        "input TEXT NOT NULL," +
+                        "mail TEXT NOT NULL," +
+                        "priceFood DOUBLE NOT NULL," +
+                        "priceInput DOUBLE NOT NULL," +
+                        "priceTotal DOUBLE NOT NULL," +
+                        "countFood INTEGER NOT NULL," +
+                        "countInput INTEGER NOT NULL," +
+                        "countTotal INTEGER NOT NULL);";
         db.execSQL(queryMenu);
-
     }
 
     @Override

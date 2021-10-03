@@ -1,6 +1,5 @@
 package com.csuncion.examen_suncion.examen_final.upn;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -38,22 +37,23 @@ public class AdapterCustomized extends RecyclerView.Adapter<AdapterCustomized.Mi
 
     @Override
     public void onBindViewHolder(@NonNull AdapterCustomized.MiViewHolder holder, int position) {
-        float price = listMenu.get(position).getPrice();
-        int count = listMenu.get(position).getCount();
+        double priceFood = listMenu.get(position).getPriceFood();
+        double priceInput = listMenu.get(position).getPriceInput();
+        int count = listMenu.get(position).getCountTotal();
         holder.rowFood.setText(listMenu.get(position).getFood());
-        holder.rowCategory.setText(listMenu.get(position).getCategory());
-        holder.rowPrice.setText(String.valueOf(price));
+        holder.rowInput.setText(listMenu.get(position).getInput());
+        holder.rowPriceSecond.setText(String.valueOf(priceFood));
+        holder.rowPriceInput.setText(String.valueOf(priceInput));
         holder.rowCount.setText(String.valueOf(count));
-        holder.rowDescription.setText(listMenu.get(position).getDescription());
-        holder.rowDetail.setText(listMenu.get(position).getDetail()+"");
         holder.imgBtnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, MenuFood.class);
-                intent.putExtra("id", listMenu.get(position).getId()+"");
-                intent.putExtra("codMenu", listMenu.get(position).getCodMenu()+"");
-                intent.putExtra("codFood", listMenu.get(position).getCodFood()+"");
-                intent.putExtra("count", listMenu.get(position).getCount()+"");
+                intent.putExtra("id", listMenu.get(position).getId() + "");
+                intent.putExtra("codMenu", listMenu.get(position).getCodMenu() + "");
+                intent.putExtra("codFood", listMenu.get(position).getCodFood() + "");
+                intent.putExtra("countFood", listMenu.get(position).getCountFood() + "");
+                intent.putExtra("countInput", listMenu.get(position).getCountInput() + "");
                 context.startActivity(intent);
             }
         });
@@ -65,17 +65,16 @@ public class AdapterCustomized extends RecyclerView.Adapter<AdapterCustomized.Mi
     }
 
     public class MiViewHolder extends RecyclerView.ViewHolder{
-        TextView rowFood, rowCategory,rowPrice,rowCount,rowDescription,rowDetail;
+        TextView rowFood, rowPriceSecond, rowPriceInput,rowCount, rowInput;
         ImageView imgFood;
         ImageButton imgBtnEdit, imgBtnDelete;
         public MiViewHolder(@NonNull View itemView){
             super(itemView);
             rowFood = itemView.findViewById(R.id.rowFood);
-            rowCategory = itemView.findViewById(R.id.rowCategory);
-            rowPrice = itemView.findViewById(R.id.rowPrice);
+            rowPriceSecond = itemView.findViewById(R.id.rowPriceSecond);
+            rowPriceInput = itemView.findViewById(R.id.rowPriceInput);
             rowCount = itemView.findViewById(R.id.rowCount);
-            rowDescription = itemView.findViewById(R.id.rowDescription);
-            rowDetail = itemView.findViewById(R.id.rowDetail);
+            rowInput = itemView.findViewById(R.id.rowInput);
             imgFood = itemView.findViewById(R.id.imgFood);
             imgBtnEdit = itemView.findViewById(R.id.imgBtnEdit);
             imgBtnDelete = itemView.findViewById(R.id.imgBtnDelete);
