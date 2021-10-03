@@ -145,12 +145,14 @@
         android:id="@+id/txtNoUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="88dp"
         android:text="Sin Usuario"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtContact"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <EditText
         android:id="@+id/txtPwd"
