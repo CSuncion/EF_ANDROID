@@ -123,13 +123,17 @@ public class MenuFood extends AppCompatActivity implements AdapterView.OnItemSel
             String usr = txtUsr.getText().toString();
             Double priceFood = 0.0, priceFoodFixed = 10.0;
             Double priceInput = 0.0, priceInputFixed = 5.0;
+
+
             if(txtUsr.getText().equals("Sin Usuario")){
                 priceFood = priceFoodFixed * Integer.parseInt(countFood);
                 priceInput = priceInputFixed * Integer.parseInt(countInput);
                 priceTotal = (priceFood)+(priceInput);
             }else{
-                priceFood = priceFoodFixed - ((priceFoodFixed * Integer.parseInt(countFood)) * 0.05);
-                priceInput = priceFoodFixed - ((priceFoodFixed * Integer.parseInt(countInput)) * 0.03);
+                priceFood = priceFoodFixed * Integer.parseInt(countFood);
+                priceFood = priceFood - (priceFood * 0.05);
+                priceInput = priceInputFixed * Integer.parseInt(countInput);
+                priceInput = priceInput - (priceInput * 0.03);
                 priceTotal = priceFood + priceInput;
             }
             countTotal =  (Integer.parseInt(countFood) + Integer.parseInt(countInput));
