@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.csuncion.examen_suncion.examen_final.upn.entities.Menu;
 import com.csuncion.examen_suncion.examen_final.upn.entities.User;
 import com.csuncion.examen_suncion.examen_final.upn.models.DAORestaurant;
+import com.csuncion.examen_suncion.examen_final.upn.util.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,19 +32,31 @@ public class MenuFood extends AppCompatActivity implements AdapterView.OnItemSel
     Menu menu;
     List<Menu> listMenu = new ArrayList<>();
     ImageButton btnOrder;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_food);
         daoRestaurant.openDB();
         asignarReferencias ();
+        cleanData();
         receiveData();
+    }
+
+    private void cleanData(){
+        E1.setSelection(0);
+        E2.setSelection(0);
+        E3.setSelection(0);
+        E4.setSelection(0);
+        F1.setSelection(0);
+        F2.setSelection(0);
+        F3.setSelection(0);
+        F4.setSelection(0);
     }
 
     private void asignarReferencias() {
         chargeSpinner();
         txtUsr = findViewById(R.id.txtUsr);
+        txtUsr.setText(Constant.NAME_USER);
         txtPrctgInput = findViewById(R.id.txtPrctgInput);
         txtPrctgSecond = findViewById(R.id.txtPrctgSecond);
         txtHuancaina = findViewById(R.id.txtHuancina);
@@ -61,13 +74,24 @@ public class MenuFood extends AppCompatActivity implements AdapterView.OnItemSel
                 captureData();
                 Intent intent;
                 String message = "";
+                Integer count = 0;
                 for (int i = 0; i < listMenu.size(); i++) {
-                    message = daoRestaurant.registerMenu(listMenu.get(i));
+                    count = count + listMenu.get(i).getCountTotal();
                 }
-                Toast.makeText(MenuFood.this, message, Toast.LENGTH_SHORT).show();
-                intent = new Intent(MenuFood.this, OrderList.class);
-                intent.putExtra("mail", txtUsr.getText().toString() + "");
-                startActivity(intent);
+                if (count>0) {
+                    for (int i = 0; i < listMenu.size(); i++) {
+                        if(existsUsr == true) {
+                            message = daoRestaurant.registerMenu(listMenu.get(i));
+                        }else{
+                            message = daoRestaurant.updateOrder(listMenu.get(i));
+                        }
+                    }
+                    cleanData();
+                    Toast.makeText(MenuFood.this, message, Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MenuFood.this, OrderList.class);
+                    intent.putExtra("mail", txtUsr.getText().toString() + "");
+                    startActivity(intent);
+                }
             }
         });
         btnOrder = findViewById(R.id.btnOrder);
@@ -87,6 +111,7 @@ public class MenuFood extends AppCompatActivity implements AdapterView.OnItemSel
         Double priceTotal = 0.0;
         Integer countTotal = 0, countSuperTotal = 0;
         Integer codMenu = 0;
+        listMenu = new ArrayList<>();
         codMenu = daoRestaurant.getCodMenu();
         if(codMenu == 0){
             codMenu = 1;
@@ -125,7 +150,7 @@ public class MenuFood extends AppCompatActivity implements AdapterView.OnItemSel
             Double priceInput = 0.0, priceInputFixed = 5.0;
 
 
-            if(txtUsr.getText().equals("Sin Usuario")){
+            if(txtUsr.getText().equals("Sin usuario")){
                 priceFood = priceFoodFixed * Integer.parseInt(countFood);
                 priceInput = priceInputFixed * Integer.parseInt(countInput);
                 priceTotal = (priceFood)+(priceInput);
@@ -147,7 +172,7 @@ public class MenuFood extends AppCompatActivity implements AdapterView.OnItemSel
     private void receiveData(){
         if(getIntent().hasExtra("mail")){
          txtUsr.setText(getIntent().getStringExtra("mail"));
-         if(!txtUsr.getText().equals("Sin Usuario")){
+         if(!txtUsr.getText().equals("Sin usuario")){
             txtPrctgInput.setText("3%");
             prctgInput = 0.03;
             txtPrctgSecond.setText("5%");
@@ -158,6 +183,32 @@ public class MenuFood extends AppCompatActivity implements AdapterView.OnItemSel
              txtPrctgSecond.setText("0%");
              prctgSecond = 0;
          }
+        }
+
+        if(getIntent().hasExtra("codMenu")){
+            existsUsr = false;
+            listMenu = daoRestaurant.getMenu(getIntent().getStringExtra("mailOrder"));
+            for (int i = 0; i < listMenu.size(); i ++){
+                switch (listMenu.get(i).getCodFood()){
+                    case 1:
+                        E1.setSelection(listMenu.get(i).getCountInput());
+                        F1.setSelection(listMenu.get(i).getCountFood());
+                        break;
+                    case 2:
+                        E2.setSelection(listMenu.get(i).getCountInput());
+                        F2.setSelection(listMenu.get(i).getCountFood());
+                        break;
+                    case 3:
+                        E3.setSelection(listMenu.get(i).getCountInput());
+                        F3.setSelection(listMenu.get(i).getCountFood());
+                        break;
+                    case 4:
+                        E4.setSelection(listMenu.get(i).getCountInput());
+                        F4.setSelection(listMenu.get(i).getCountFood());
+                        break;
+                }
+
+            }
         }
     }
 

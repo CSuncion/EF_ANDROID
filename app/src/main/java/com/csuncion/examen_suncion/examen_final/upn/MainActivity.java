@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, exists, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, MenuFood.class);
                         intent.putExtra("mail", txtUser.getText().toString() + "");
+                        Constant.NAME_USER = txtUser.getText().toString();
                         startActivity(intent);
                     }
                 }
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent= new Intent(MainActivity.this, MenuFood.class);
                 intent.putExtra("mail", txtNoUser.getText().toString() + "");
+                Constant.NAME_USER = txtNoUser.getText().toString();
                 startActivity(intent);
             }
         });

@@ -1,6 +1,8 @@
 package com.csuncion.examen_suncion.examen_final.upn;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.csuncion.examen_suncion.examen_final.upn.entities.Menu;
+import com.csuncion.examen_suncion.examen_final.upn.models.DAORestaurant;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,18 +49,21 @@ public class AdapterCustomized extends RecyclerView.Adapter<AdapterCustomized.Mi
         holder.rowPriceSecond.setText(String.valueOf(priceFood));
         holder.rowPriceInput.setText(String.valueOf(priceInput));
         holder.rowCount.setText(String.valueOf(count));
-        holder.imgBtnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, MenuFood.class);
-                intent.putExtra("id", listMenu.get(position).getId() + "");
-                intent.putExtra("codMenu", listMenu.get(position).getCodMenu() + "");
-                intent.putExtra("codFood", listMenu.get(position).getCodFood() + "");
-                intent.putExtra("countFood", listMenu.get(position).getCountFood() + "");
-                intent.putExtra("countInput", listMenu.get(position).getCountInput() + "");
-                context.startActivity(intent);
-            }
-        });
+        switch (listMenu.get(position).getCodFood()){
+            case 1:
+                holder.imgFood.setImageResource(R.drawable.lomo_saltado);
+                break;
+            case 2:
+                holder.imgFood.setImageResource(R.drawable.arroz_con_pollo);
+                break;
+            case 3:
+                holder.imgFood.setImageResource(R.drawable.estofado_de_pollo);
+                break;
+            case 4:
+                holder.imgFood.setImageResource(R.drawable.seco_de_carne);
+                break;
+        }
+
     }
 
     @Override
@@ -67,7 +74,6 @@ public class AdapterCustomized extends RecyclerView.Adapter<AdapterCustomized.Mi
     public class MiViewHolder extends RecyclerView.ViewHolder{
         TextView rowFood, rowPriceSecond, rowPriceInput,rowCount, rowInput;
         ImageView imgFood;
-        ImageButton imgBtnEdit, imgBtnDelete;
         public MiViewHolder(@NonNull View itemView){
             super(itemView);
             rowFood = itemView.findViewById(R.id.rowFood);
@@ -76,8 +82,6 @@ public class AdapterCustomized extends RecyclerView.Adapter<AdapterCustomized.Mi
             rowCount = itemView.findViewById(R.id.rowCount);
             rowInput = itemView.findViewById(R.id.rowInput);
             imgFood = itemView.findViewById(R.id.imgFood);
-            imgBtnEdit = itemView.findViewById(R.id.imgBtnEdit);
-            imgBtnDelete = itemView.findViewById(R.id.imgBtnDelete);
         }
     }
 }

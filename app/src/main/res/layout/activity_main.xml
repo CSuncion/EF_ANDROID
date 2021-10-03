@@ -148,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="88dp"
-        android:text="Sin Usuario"
+        android:text="Sin usuario"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtContact"
         app:layout_constraintEnd_toEndOf="parent"

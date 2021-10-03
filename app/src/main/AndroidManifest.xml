@@ -18,7 +18,8 @@
         <activity
             android:name=".OrderList"
             android:exported="true"
-            android:label="Lista de Orden"/>
+            android:label="Lista de Orden"
+            android:parentActivityName=".MenuFood"/>
         <activity
             android:name=".MenuFood"
             android:exported="true"

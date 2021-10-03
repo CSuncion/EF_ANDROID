@@ -162,4 +162,43 @@ public class DAORestaurant {
         }
         return answer;
     }
+
+    public String updateOrder(Menu menu)
+    {
+        String answer = "";
+        try{
+            ContentValues values = new ContentValues();
+            values.put("priceFood", menu.getPriceFood());
+            values.put("priceInput", menu.getPriceInput());
+            values.put("priceTotal", menu.getPriceTotal());
+            values.put("countFood", menu.getCountFood());
+            values.put("countInput", menu.getCountInput());
+            values.put("countTotal", menu.getCountTotal());
+            long ans = db.update(Constant.NAME_TABLE_MENU, values,"codMenu = " + menu.getCodMenu() + " and codFood = " + menu.getCodFood() + " and mail = '" + menu.getMail() + "'",null);
+            if(ans == -1){
+                answer = "Error al insertar";
+            }else{
+                answer = "Se actualizó correctamente";
+            }
+        }catch (Exception e){
+            answer = e.getMessage();
+        }
+        return  answer;
+    }
+
+
+    public String deleteOrder(String mail){
+        String answer = "";
+        try{
+            long ans = db.delete(Constant.NAME_TABLE_MENU,"mail = '" + mail + "'", null);
+            if(ans == -1){
+                answer = "Error al insertar";
+            }else{
+                answer = "Se eliminó correctamente";
+            }
+        }catch (Exception e){
+            answer = e.getMessage();
+        }
+        return  answer;
+    }
 }

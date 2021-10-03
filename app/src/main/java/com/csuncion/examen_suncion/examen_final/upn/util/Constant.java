@@ -6,4 +6,5 @@ public class Constant {
     public static final String NAME_TABLE_MENU = "menu";
     public static final String NAME_TABLE_CONTACT = "contact";
     public static final int VERSION = 1;
+    public static String NAME_USER = "";
 }
