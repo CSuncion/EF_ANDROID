@@ -1,33 +1,14 @@
 package com.csuncion.examen_suncion.examen_final.upn.entities;
 
 public class User {
-    private int id;
+    private String id;
     private String firstname, lastname, mail, dni, sex, password;
 
-    public User(int id, String firstname, String lastname, String mail, String dni, String sex, String password) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.mail = mail;
-        this.dni = dni;
-        this.sex = sex;
-        this.password = password;
-    }
-
-    public User(String firstname, String lastname, String mail, String dni, String sex, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.mail = mail;
-        this.dni = dni;
-        this.sex = sex;
-        this.password = password;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
